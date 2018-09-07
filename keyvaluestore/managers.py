@@ -22,8 +22,6 @@ class KeyValueStoreManager(models.Manager):
     def get_or_create(self, defaults=None, **kwargs):
         if 'key' in kwargs:
             kwargs['key'] = kwargs['key'].upper()
-        if isinstance(defaults, dict) and 'key' in defaults:
-            defaults['key'] = defaults['key'].upper()
 
         return super(KeyValueStoreManager, self).get_or_create(
             defaults=defaults, **kwargs)
